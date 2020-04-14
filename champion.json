@@ -235,7 +235,7 @@
             "magic":8,
             "difficulty":3
          
-[,
+],
          "image":[
             "full":"Amumu.png",
             "sprite":"champion0.png",
@@ -743,7 +743,7 @@
          
 ],
          "partype":"Mana",
-         "stats":{
+         "stats":[
             "hp":519.68,
             "hpperlevel":88,
             "mp":469,
@@ -1392,7 +1392,7 @@
             "w":48,
             "h":48
          
-[,
+],
          "tags":[
             "Mage",
             "Fighter"
@@ -1863,14 +1863,14 @@
 ]
       
 },
-      [
+      {
          "version":"10.7.1",
          "id":"Gnar",
          "key":"150",
          "name":"Gnar",
          "title":"the Missing Link",
          "blurb":"Gnar is a primeval yordle whose playful antics can erupt into a toddler's outrage in an instant, transforming him into a massive beast bent on destruction. Frozen in True Ice for millennia, the curious creature broke free and now hops about a changed...",
-         "info":{
+         "info":[
             "attack":6,
             "defense":5,
             "magic":5,
