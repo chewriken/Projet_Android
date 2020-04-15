@@ -1,24 +1,29 @@
 package com.example.projet_android;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.File;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
-    private List<Pokemon> values;
+    private List<Champion> values;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
     class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         TextView txtHeader;
         TextView txtFooter;
+        ImageView imageIcon;
         View layout;
 
         ViewHolder(View v) {
@@ -26,10 +31,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
+            imageIcon = (ImageView) v.findViewById(R.id.imageIcon);
         }
     }
 
-    public void add(int position, Pokemon item) {
+    public void add(int position, Champion item) {
         values.add(position, item);
         notifyItemInserted(position);
     }
@@ -39,13 +45,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         notifyItemRemoved(position);
     }
 
-    // Provide a suitable constructor (depends on the kind of dataset)
-    //public ListAdapter(List<String> myDataset) { values = myDataset; }
-    public ListAdapter(List<Pokemon> myDataset) {
+    public ListAdapter(List<Champion> myDataset) {
         values = myDataset;
     }
 
-    // Create new views (invoked by the layout manager)
     @Override
     public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                    int viewType) {
@@ -59,12 +62,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        final Pokemon name = values.get(position);
+        final Champion name = values.get(position);
+
         holder.txtHeader.setText(name.getName());
         /*holder.txtHeader.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +74,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             }
         });*/
 
-        holder.txtFooter.setText(name.getUrl());
+        holder.txtFooter.setText(name.getTitle());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
