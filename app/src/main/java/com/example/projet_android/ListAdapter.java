@@ -2,6 +2,7 @@ package com.example.projet_android;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Environment;
 import android.view.LayoutInflater;
@@ -11,7 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -75,12 +81,28 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         });*/
 
         holder.txtFooter.setText(name.getTitle());
+
+        String imageUri = "https://github.com/chewriken/Projet_Android/blob/master/app/src/main/res/mipmap-mdpi/"+name.getName().toLowerCase()+"_square.png?raw=true";
+        Picasso.get().load(imageUri).into(holder.imageIcon);
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return values.size();
+    }
+
+    public Drawable LoadImageFromWebOperations(String url)
+    {
+        try{
+            InputStream is = (InputStream) new URL(url).getContent();
+            Drawable d = Drawable.createFromStream(is, "src name");
+            return d;
+        }catch (Exception e) {
+            System.out.println("Exc="+e);
+            return null;
+        }
     }
 
 }
