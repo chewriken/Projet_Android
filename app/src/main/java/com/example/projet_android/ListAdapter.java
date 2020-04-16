@@ -1,29 +1,21 @@
 package com.example.projet_android;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
-import android.os.Environment;
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.squareup.picasso.Picasso;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<Champion> values;
+    Dialog myDialog;
 
     class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
@@ -38,6 +30,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
             imageIcon = (ImageView) v.findViewById(R.id.imageIcon);
+            myDialog = new Dialog(v.getContext());
         }
     }
 
@@ -70,22 +63,79 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        final Champion name = values.get(position);
+        final Champion champion = values.get(position);
 
-        holder.txtHeader.setText(name.getName());
-        /*holder.txtHeader.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                remove(position);
-            }
-        });*/
+        holder.txtHeader.setText(champion.getName());
+        holder.txtHeader.setTextColor(Color.WHITE);
+        setOnClick(holder.txtHeader, champion);
 
-        holder.txtFooter.setText(name.getTitle());
+        holder.txtFooter.setText(champion.getTitle());
+        holder.txtFooter.setTextColor(Color.WHITE);
 
-        String imageUri = "https://github.com/chewriken/Projet_Android/blob/master/app/src/main/res/mipmap-mdpi/"+name.getName().toLowerCase()+"_square.png?raw=true";
+        switch (champion.getName()){
+            case "Aurelion Sol":
+                champion.setName("aurelionsol");
+                break;
+            case "Cho'Gath":
+                champion.setName("chogath");
+                break;
+            case "Dr. Mundo":
+                champion.setName("drmundo");
+                break;
+            case "Jarvan IV":
+                champion.setName("jarvaniv");
+                break;
+            case "Kai'Sa":
+                champion.setName("kaisa");
+                break;
+            case "Kha'Zix":
+                champion.setName("khazix");
+                break;
+            case "Kog'Maw":
+                champion.setName("kogmaw");
+                break;
+            case "Lee Sin":
+                champion.setName("leesin");
+                break;
+            case "Master Yi":
+                champion.setName("masteryi");
+                break;
+            case "Miss Fortune":
+                champion.setName("missfortune");
+                break;
+            case "Nunu & Willump":
+                champion.setName("nunu");
+                break;
+            case "Rek'Sai":
+                champion.setName("reksai");
+                break;
+            case "Tahm Kench":
+                champion.setName("tahmkench");
+                break;
+            case "Twisted Fate":
+                champion.setName("twistedfate");
+                break;
+            case "Vel'Koz":
+                champion.setName("velkoz");
+                break;
+            case "Xin Zhao":
+                champion.setName("xinzhao");
+                break;
+        }
+
+        String imageUri = "https://github.com/chewriken/Projet_Android/blob/master/app/src/main/res/mipmap-mdpi/"+champion.getName().toLowerCase()+"_square.png?raw=true";
         Picasso.get().load(imageUri).into(holder.imageIcon);
-
     }
+
+    private void setOnClick(TextView txtHeader, final Champion champion) {
+        txtHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPopup(view,champion);
+            }
+        });
+    }
+
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
@@ -93,16 +143,30 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         return values.size();
     }
 
-    public Drawable LoadImageFromWebOperations(String url)
-    {
-        try{
-            InputStream is = (InputStream) new URL(url).getContent();
-            Drawable d = Drawable.createFromStream(is, "src name");
-            return d;
-        }catch (Exception e) {
-            System.out.println("Exc="+e);
-            return null;
-        }
+    public void showPopup(View v, final Champion champion) {
+
+        TextView championName;
+        TextView txtclose;
+        ImageView imageView;
+
+        myDialog.setContentView(R.layout.custompopup);
+
+        championName = (TextView) myDialog.findViewById(R.id.championname);
+        txtclose = (TextView) myDialog.findViewById(R.id.txtclose);
+        imageView = (ImageView) myDialog.findViewById(R.id.championImage);
+
+        String imageUri = "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg";
+        Picasso.get().load(imageUri).into(imageView);
+        championName.setText(champion.getName());
+
+        txtclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDialog.dismiss();
+            }
+        });
+        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myDialog.show();
     }
 
 }
