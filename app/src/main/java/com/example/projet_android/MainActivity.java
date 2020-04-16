@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
                 .setLenient()
                 .create();
 
-        makeApiCall();
-        /*List<Champion> championList = getDataFromCache();
+
+        List<Champion> championList = getDataFromCache();
         if(championList != null){
             showList(championList);
         }else{
             makeApiCall();
-        }*/
+        }
     }
 
     private List<Champion> getDataFromCache() {
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<RestLeagueOfLegendsResponse> call, Response<RestLeagueOfLegendsResponse> response) {
                 if(response.isSuccessful() && response.body()!=null){
                     List<Champion> championList = response.body().getResults();
-                    //savedList(championList);
+                    savedList(championList);
                     showList(championList);
                     Toast.makeText(getApplicationContext()," API Success", Toast.LENGTH_SHORT).show();
                 } else{

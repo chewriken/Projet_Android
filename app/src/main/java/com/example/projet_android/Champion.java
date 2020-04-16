@@ -19,6 +19,10 @@ public class Champion {
 
     private List<Stats> stats;*/
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getVersion() {
         return version;
     }
