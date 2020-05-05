@@ -24,4 +24,5 @@ public class RestLeagueOfLegendsResponse {
     public List<Champion> getResults() {
         return data;
     }
+
 }
