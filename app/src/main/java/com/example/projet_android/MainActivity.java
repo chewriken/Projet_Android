@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
                 .setLenient()
                 .create();
 
-
         List<Champion> championList = getDataFromCache();
+
         if(championList != null){
             showList(championList);
         }else{

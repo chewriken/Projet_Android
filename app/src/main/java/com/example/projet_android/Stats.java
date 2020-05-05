@@ -2,104 +2,104 @@ package com.example.projet_android;
 
 class Stats {
 
-    private Integer hp;
-    private Integer hpPerLevel;
-    private Integer mp;
-    private Integer mpPerLevel;
-    private Integer moveSpeed;
-    private Integer armor;
-    private Double armorPerLevel;
-    private Double spellBlock;
-    private Double spellBlockPerLevel;
-    private Integer attackRange;
-    private Integer hpRegen;
-    private Integer hpRegenPerLevel;
-    private Integer mpRegen;
-    private Integer mpRegenPerLevel;
-    private Integer crit;
-    private Integer critPerLevel;
-    private Integer attackDamage;
-    private Integer attackDamagePerLevel;
-    private Double attackSpeedPerLevel;
-    private Double attackSpeed;
+    private Double hp;
+    private Double hpperlevel;
+    private Double mp;
+    private Double mpperlevel;
+    private Integer movespeed;
+    private Double armor;
+    private Double armorperlevel;
+    private Double spellblock;
+    private Double spellblockperlevel;
+    private Double attackrange;
+    private Double hpregen;
+    private Double hpregenperlevel;
+    private Double mpregen;
+    private Double mpregenperlevel;
+    private Double crit;
+    private Double critperlevel;
+    private Double attackdamage;
+    private Double attackdamageperlevel;
+    private Double attackspeedperlevel;
+    private Double attackspeed;
 
-    public Integer getHp() {
+    public Double getHp() {
         return hp;
     }
 
-    public Integer getHpPerLevel() {
-        return hpPerLevel;
+    public Double getHpperlevel() {
+        return hpperlevel;
     }
 
-    public Integer getMp() {
+    public Double getMp() {
         return mp;
     }
 
-    public Integer getMpPerLevel() {
-        return mpPerLevel;
+    public Double getMpperlevel() {
+        return mpperlevel;
     }
 
-    public Integer getMoveSpeed() {
-        return moveSpeed;
+    public Integer getMovespeed() {
+        return movespeed;
     }
 
-    public Integer getArmor() {
+    public Double getArmor() {
         return armor;
     }
 
-    public Double getArmorPerLevel() {
-        return armorPerLevel;
+    public Double getArmorperlevel() {
+        return armorperlevel;
     }
 
-    public Double getSpellBlock() {
-        return spellBlock;
+    public Double getSpellblock() {
+        return spellblock;
     }
 
-    public Double getSpellBlockPerLevel() {
-        return spellBlockPerLevel;
+    public Double getSpellblockperlevel() {
+        return spellblockperlevel;
     }
 
-    public Integer getAttackRange() {
-        return attackRange;
+    public Double getAttackrange() {
+        return attackrange;
     }
 
-    public Integer getHpRegen() {
-        return hpRegen;
+    public Double getHpregen() {
+        return hpregen;
     }
 
-    public Integer getHpRegenPerLevel() {
-        return hpRegenPerLevel;
+    public Double getHpregenperlevel() {
+        return hpregenperlevel;
     }
 
-    public Integer getMpRegen() {
-        return mpRegen;
+    public Double getMpregen() {
+        return mpregen;
     }
 
-    public Integer getMpRegenPerLevel() {
-        return mpRegenPerLevel;
+    public Double getMpregenperlevel() {
+        return mpregenperlevel;
     }
 
-    public Integer getCrit() {
+    public Double getCrit() {
         return crit;
     }
 
-    public Integer getCritPerLevel() {
-        return critPerLevel;
+    public Double getCritperlevel() {
+        return critperlevel;
     }
 
-    public Integer getAttackDamage() {
-        return attackDamage;
+    public Double getAttackDamage() {
+        return attackdamage;
     }
 
-    public Integer getAttackDamagePerLevel() {
-        return attackDamagePerLevel;
+    public Double getAttackDamageperlevel() {
+        return attackdamageperlevel;
     }
 
-    public Double getAttackSpeedPerLevel() {
-        return attackSpeedPerLevel;
+    public Double getAttackspeedperlevel() {
+        return attackspeedperlevel;
     }
 
-    public Double getAttackSpeed() {
-        return attackSpeed;
+    public Double getAttackspeed() {
+        return attackspeed;
     }
 }

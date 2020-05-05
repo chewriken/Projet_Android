@@ -1,7 +1,5 @@
 package com.example.projet_android;
 
-import android.icu.text.IDNA;
-
 import java.util.List;
 
 public class Champion {
@@ -12,12 +10,14 @@ public class Champion {
     private String name;
     private String title;
     private String blurb;
-    /*private List<Info> info;
-    private String partype;
-    private List<ImageChampion> image;
+    private InfoChampion info;
+    private ImageChampion image;
     private List<String> tags;
+    private String partype;
+    private Stats stats;
 
-    private List<Stats> stats;*/
+    public Champion() {
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -47,11 +47,11 @@ public class Champion {
         return blurb;
     }
 
-    /*public List<Info> getInfo() {
+    public InfoChampion getInfo() {
         return info;
     }
 
-    public List<ImageChampion> getImage() {
+    public ImageChampion getImage() {
         return image;
     }
 
@@ -63,7 +63,7 @@ public class Champion {
         return partype;
     }
 
-    public List<Stats> getStats() {
+    public Stats getStats() {
         return stats;
-    }*/
+    }
 }
