@@ -1,16 +1,27 @@
 package com.example.projet_android.controleur;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.projet_android.R;
 import com.example.projet_android.Singletons;
 import com.example.projet_android.model.Champion;
 import com.example.projet_android.model.Constants;
 import com.example.projet_android.model.RestLeagueOfLegendsResponse;
+import com.example.projet_android.model.Stats;
 import com.example.projet_android.vue.MainActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -22,11 +33,13 @@ public class MainController {
     private SharedPreferences sharedPreferences;
     private Gson gson;
     private MainActivity view;
+    private Dialog myDialog;
 
     public MainController(MainActivity mainActivity,Gson gson, SharedPreferences sharedPreferences) {
         this.view = mainActivity;
         this.gson = gson;
         this.sharedPreferences = sharedPreferences;
+
     }
 
     public void onStart(){
@@ -40,8 +53,6 @@ public class MainController {
     }
 
     private void makeApiCall(){
-
-
         Call<RestLeagueOfLegendsResponse> call = Singletons.getLeagueOfLegendsApi().getLeagueOfLegendsResponse();
         call.enqueue(new Callback<RestLeagueOfLegendsResponse>() {
 
@@ -63,7 +74,6 @@ public class MainController {
             }
 
         });
-
     }
 
     private void savedList(List<Champion> championList) {
@@ -88,7 +98,7 @@ public class MainController {
     }
 
     public void onItemClick(Champion champion){
+        view.showPopUp(champion);
 
     }
-
 }
