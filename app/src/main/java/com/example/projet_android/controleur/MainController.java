@@ -1,16 +1,13 @@
 package com.example.projet_android.controleur;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.widget.Toast;
 
-import com.example.projet_android.LeagueOfLegendsApi;
+import com.example.projet_android.Singletons;
 import com.example.projet_android.model.Champion;
 import com.example.projet_android.model.Constants;
 import com.example.projet_android.model.RestLeagueOfLegendsResponse;
 import com.example.projet_android.vue.MainActivity;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
@@ -19,8 +16,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainController {
 
@@ -46,13 +41,8 @@ public class MainController {
 
     private void makeApiCall(){
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
 
-        final LeagueOfLegendsApi leagueOfLegendsApi = retrofit.create(LeagueOfLegendsApi.class);
-        Call<RestLeagueOfLegendsResponse> call = leagueOfLegendsApi.getLeagueOfLegendsResponse();
+        Call<RestLeagueOfLegendsResponse> call = Singletons.getLeagueOfLegendsApi().getLeagueOfLegendsResponse();
         call.enqueue(new Callback<RestLeagueOfLegendsResponse>() {
 
             @Override

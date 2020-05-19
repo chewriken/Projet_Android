@@ -5,16 +5,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.projet_android.Singletons;
 import com.example.projet_android.R;
 import com.example.projet_android.controleur.MainController;
 import com.example.projet_android.model.Champion;
 import com.example.projet_android.model.Constants;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
@@ -30,14 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
         controller = new MainController(
                 this,
-                new GsonBuilder()
-                .setLenient()
-                .create(),
-                getSharedPreferences(Constants.SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
-        );
+                Singletons.getGson(),
+                Singletons.getSharedPreferences(getApplicationContext()));
 
         controller.onStart();
-
     }
 
     public void showList(List<Champion> championList) {
