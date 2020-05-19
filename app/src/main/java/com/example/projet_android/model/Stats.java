@@ -1,6 +1,6 @@
-package com.example.projet_android;
+package com.example.projet_android.model;
 
-class Stats {
+public class Stats {
 
     private Double hp;
     private Double hpperlevel;
