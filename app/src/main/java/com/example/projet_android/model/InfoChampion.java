@@ -1,4 +1,4 @@
-package com.example.projet_android;
+package com.example.projet_android.model;
 
 public class InfoChampion {
 

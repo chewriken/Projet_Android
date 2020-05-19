@@ -1,4 +1,4 @@
-package com.example.projet_android;
+package com.example.projet_android.vue;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.projet_android.R;
+import com.example.projet_android.model.Champion;
+import com.example.projet_android.model.Stats;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -237,6 +241,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         TextView hp, hpPerLvl, mp, mpPerLvl, moveSpeed, armor, armorPerLvl, spellBlock, spellBlockPerLvl, attackRange;
         TextView hpRegen, hpRegenPerLvl, mpRegen, mpRegenPerLvl, critique, critiquePerLvl, attackDamage, attackDamagePerLvl;
         TextView attackSpeedPerLvl, attackSpeed;
+
+        Stats stats = champion.getStats();
 
         hp = myDialog.findViewById(R.id.hpTxt);
         hpPerLvl = myDialog.findViewById(R.id.hpPerLvlTxt);

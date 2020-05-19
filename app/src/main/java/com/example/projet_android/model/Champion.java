@@ -1,4 +1,6 @@
-package com.example.projet_android;
+package com.example.projet_android.model;
+
+import com.example.projet_android.Stats;
 
 import java.util.List;
 

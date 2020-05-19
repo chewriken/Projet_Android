@@ -1,4 +1,4 @@
-package com.example.projet_android;
+package com.example.projet_android.vue;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +14,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.projet_android.LeagueOfLegendsApi;
+import com.example.projet_android.R;
+import com.example.projet_android.model.RestLeagueOfLegendsResponse;
+import com.example.projet_android.model.Champion;
+import com.example.projet_android.model.Constants;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
