@@ -1,10 +1,10 @@
 package com.example.projet_android.vue;
 
-import android.app.Dialog;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,16 +13,18 @@ import com.example.projet_android.model.Champion;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<Champion> values;
+    private List<Champion> itemsFiltered;
     private OnItemClickListener listener;
-    private Dialog myDialog;
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         TextView txtHeader;
         TextView txtFooter;
@@ -35,15 +37,16 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             txtHeader = v.findViewById(R.id.firstLine);
             txtFooter = v.findViewById(R.id.secondLine);
             imageIcon = v.findViewById(R.id.imageIcon);
-            myDialog = new Dialog(v.getContext());
         }
     }
 
-    public ListAdapter(List<Champion> myDataset, OnItemClickListener listener) {
+    ListAdapter(List<Champion> myDataset, OnItemClickListener listener) {
         this.values = myDataset;
         this.listener = listener;
+        itemsFiltered = myDataset;
     }
 
+    @NonNull
     @Override
     public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                    int viewType) {
@@ -51,14 +54,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View v = inflater.inflate(R.layout.row_layout, parent, false);
         // set the view's size, margins, paddings and layout parameters
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+        return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        final Champion champion = values.get(position);
-
+        final Champion champion = itemsFiltered.get(position);
         holder.txtHeader.setText(champion.getName());
         holder.txtHeader.setTextColor(Color.WHITE);
 
@@ -130,16 +131,46 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return values.size();
+        return itemsFiltered.size();
     }
 
     public interface OnItemClickListener{
         void onItemClick(Champion item);
     }
 
-    public void setListener(OnItemClickListener listener){
-        this.listener = listener;
-    }
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String query = charSequence.toString();
 
+                List<Champion> filtered = new ArrayList<>();
+
+                if (query.isEmpty()) {
+                    filtered = values;
+                } else {
+                    for (Champion champion : values) {
+                        if (champion.getName().toLowerCase().contains(query.toLowerCase())) {
+                            filtered.add(champion);
+                        }
+                    }
+                }
+
+                FilterResults results = new FilterResults();
+                results.count = filtered.size();
+                results.values = filtered;
+                return results;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults results) {
+                itemsFiltered = (ArrayList<Champion>) results.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+    /*public void setListener(OnItemClickListener listener){
+        this.listener = listener;
+    }*/
 }
 
