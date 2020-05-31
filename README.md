@@ -5,9 +5,9 @@
 
 Le but de ce projet a été d'utiliser une API REST afin de créer notre application.
 
-Il a aussi fallu utiliser la Clean Architecture, plus précisément le modèle MVC dans une application codé soit en KOTLIN ou bien en JAVA.
+Il a aussi fallu utiliser la Clean Architecture, plus précisément le modèle MVC dans une application codée soit en KOTLIN ou bien en JAVA.
 
-Cette application est codé en JAVA et utilise [l'API REST de league of legends](https://developer.riotgames.com/docs/lol). Afin d'afficher la liste des champions avec leurs différentes caractéristiques
+Cette application est codée en JAVA et utilise [l'API REST de league of legends](https://developer.riotgames.com/docs/lol) afin d'afficher la liste des champions avec leurs différentes caractéristiques
 
 
 ## Prérequis
@@ -31,7 +31,7 @@ https://github.com/chewriken/Android.git
 
 * Affichage d'une liste dans un RecyclerView
 
-* Affichage du détails d'un item dans la liste
+* Affichage du détail d'un item dans la liste
 
   * Dans un pop-up
 
@@ -39,7 +39,7 @@ https://github.com/chewriken/Android.git
 
 * Gitflow propre
 
-* Fonctionnalité supplémentaire :
+* Fonctionnalités supplémentaires :
 
   * Barre de recherche
   
@@ -67,7 +67,7 @@ https://github.com/chewriken/Android.git
 | ------------ | ------------- |------------- |
 
 
-### Mise en cache des images charger avec picasso
+### Mise en cache des images chargées avec picasso
 
 * télechargement des images depuis internet
 
@@ -80,7 +80,7 @@ https://github.com/chewriken/Android.git
 | <img src="https://github.com/chewriken/Projet_Android/blob/master/img_readme/Screenshot_20200531-174554_League%20of%20legends.jpg" width="350"> | <img src="https://github.com/chewriken/Projet_Android/blob/master/img_readme/Screenshot_20200531-174559_League%20of%20legends.jpg" width="350"> |
 | ------------ | ------------- |
 
-* Une fois que l'image chargée même quand t-il n'y a pas de connexion on peut la voir
+* Une fois l'image chargée, on peut la voir hors-connexion
 
 | <img src="https://github.com/chewriken/Projet_Android/blob/master/img_readme/Screenshot_20200531-174612_League%20of%20legends.jpg" width="350"> | <img src="https://github.com/chewriken/Projet_Android/blob/master/img_readme/Screenshot_20200531-174620_League%20of%20legends.jpg" width="350"> |
 | ------------ | ------------- |
