@@ -7,11 +7,11 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.projet_android.R;
 import com.example.projet_android.model.Champion;
-
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -125,7 +125,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         }
 
         String imageUri = "https://github.com/chewriken/Projet_Android/blob/master/app/src/main/res/mipmap-mdpi/"+champion.getName().toLowerCase()+"_square.png?raw=true";
-        Picasso.get().load(imageUri).into(holder.imageIcon);
+        loadImageFromNetwork(imageUri,holder);
+
+    }
+
+    private void loadImageFromNetwork(String imageUri,ViewHolder holder) {
+        Picasso
+                .get()
+                .load(imageUri)
+                .networkPolicy(NetworkPolicy.NO_CACHE)
+                .into(holder.imageIcon);
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -138,7 +148,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         void onItemClick(Champion item);
     }
 
-    public Filter getFilter() {
+    Filter getFilter() {
         return new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence charSequence) {
