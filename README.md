@@ -80,7 +80,7 @@ https://github.com/chewriken/Android.git
 | <img src="https://github.com/chewriken/Projet_Android/blob/master/img_readme/Screenshot_20200531-174554_League%20of%20legends.jpg" width="350"> | <img src="https://github.com/chewriken/Projet_Android/blob/master/img_readme/Screenshot_20200531-174559_League%20of%20legends.jpg" width="350"> |
 | ------------ | ------------- |
 
-* Même quand il y a pas internet une fois que l'image est chargé on peut la voir
+* Une fois que l'image chargée même quand t-il n'y a pas de connexion on peut la voir
 
 | <img src="https://github.com/chewriken/Projet_Android/blob/master/img_readme/Screenshot_20200531-174612_League%20of%20legends.jpg" width="350"> | <img src="https://github.com/chewriken/Projet_Android/blob/master/img_readme/Screenshot_20200531-174620_League%20of%20legends.jpg" width="350"> |
 | ------------ | ------------- |
