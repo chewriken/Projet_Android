@@ -17,7 +17,7 @@ Cette application est codée en JAVA et utilise [l'API REST de league of legends
 * Récupérer la branche de develop
 
 ```bash
-https://github.com/chewriken/Android.git
+https://github.com/chewriken/Projet_Android.git
 ```
 
 * Trouver une API REST publique
