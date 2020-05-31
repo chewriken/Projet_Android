@@ -39,11 +39,9 @@ https://github.com/chewriken/Android.git
 
 * Gitflow propre
 
-* Fonctionnalités supplémentaires :
+* Fonctionnalité supplémentaire :
 
   * Barre de recherche
-  
-  * liste de favoris
   
     
 ## Fonctionnalité  
@@ -61,7 +59,7 @@ https://github.com/chewriken/Android.git
 
 * Description textuelle
 
-* icône schématisant les différentes statistiques
+* Icône schématisant les différentes statistiques
 
 | <img src="https://github.com/chewriken/Android/blob/master/img_readme/popup_1.jpg" width="350"> | <img src="https://github.com/chewriken/Android/blob/master/img_readme/popup_2.jpg" width="350"> | <img src="https://github.com/chewriken/Android/blob/master/img_readme/popup_3.jpg" width="350"> | 
 | ------------ | ------------- |------------- |
@@ -69,7 +67,7 @@ https://github.com/chewriken/Android.git
 
 ### Mise en cache des images chargées avec picasso
 
-* télechargement des images depuis internet
+* Télechargement des images depuis internet
 
 * Mise en cache dans la mémoire
 
