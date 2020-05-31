@@ -23,7 +23,7 @@ https://github.com/chewriken/Android.git
 * Trouver une API REST publique
 
 
-## Consigne à respecter
+## Consignes à respecter
 
 * Clean Architecture et MVC
 
